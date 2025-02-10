@@ -8,7 +8,7 @@ const planets = [
     { name: "Uranus", temperature: 78, distance: 19.22 },
     { name: "Neptune", temperature: 73, distance: 30.05 }
 ];
-habitable = planets.filter(function (planet) {
+const habitable = planets.filter(function (planet) {
     return (planet.temperature <= 323 && planet.temperature >= 253 && planet.distance >= 0.75 && planet.distance <= 1.5)
 });
 console.log(habitable)
