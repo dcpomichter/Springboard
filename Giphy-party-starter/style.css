@@ -1,0 +1,52 @@
+/* Your Styles Here */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+#image-bucket {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid lavender;
+    border-radius: 5px;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1em;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+.row>img {
+    border-radius: 10px;
+}
+
+input {
+    height: 2em;
+    border-radius: 4px;
+}
+
+input.button {
+    background-color: teal;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 1em 2em;
+}
+
+input.button:active {
+    background-color: rgb(184, 35, 159);
+}
+
+input.button:hover {
+    cursor: pointer;
+}
