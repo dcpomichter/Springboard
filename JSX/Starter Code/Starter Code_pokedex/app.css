@@ -1,0 +1,28 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 250px;
+    width: 250px;
+    background-color: #bbb;
+    border-radius: 15%;
+    display: inline-table;
+    transform: scale();
+    transition: ease-in 1s;
+    font-size: medium;
+}
+
+.card:hover {
+    height: 450px;
+    width: 450px;
+    font-size: xx-large
+}
+
+div {
+    text-align: center;
+    align-content: center;
+    padding: 5px;
+    border: 5px solid whitesmoke;
+}
+
+main {
+    padding: 5%;
+}
