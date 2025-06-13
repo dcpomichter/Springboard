@@ -1,6 +1,12 @@
 .missionAction {
-    position: absolute;
-    left: 200px;
+    position: relative;
     right: 0px;
-    align-content: end;
+    bottom: 15px;
+    align-items: end;
+}
+
+button {
+    padding: 5px;
+    margin: 5px;
+    background-color: brown;
 }

@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <h1>Space Mission Control</h1>
-      <MissionControl missions={INITIAL_MISSIONS} />
+      <MissionControl initialMissions={INITIAL_MISSIONS} />
       <div>
         <img src={reactLogo} className="logo-react" alt="React logo" />
       </div>

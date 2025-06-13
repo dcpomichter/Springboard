@@ -1,0 +1,9 @@
+.missionFilter {
+    position: relative;
+    align-items: start;
+}
+
+.missionFilter button {
+    position: relative;
+    align-self: start;
+}

@@ -1,15 +1,11 @@
 import "./MissionCard.css"
 
-function MissionCard(props) {
-
+function MissionCard({ name, status, crew }) {
     return (
         <div className="missionCard">
-            <h3 className="missionCard-title">{props.name}</h3>
-            <p className="missionCard-status">Status: {props.children.status}</p>
-            <p className="missionCard-crew">Crew: {props.crew.toString()}</p>
-            <>
-                {props.children}
-            </>
+            <h3 className="missionCard-title">{name}</h3>
+            <p className="missionCard-status">Status: {status}</p>
+            <p className="missionCard-crew">Crew: {crew.toString()}</p>
         </div>
     )
 }
