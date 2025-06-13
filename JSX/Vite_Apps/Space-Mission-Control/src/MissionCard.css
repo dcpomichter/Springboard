@@ -1,0 +1,12 @@
+.missionCard {
+    border: 2px solid whitesmoke;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+    text-size-adjust: auto;
+    position: relative;
+}
+
+.missionCard-title {
+    font-size: x-large;
+}
