@@ -1,0 +1,13 @@
+.HealthBar {
+    margin: 25px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #f44336
+}
+
+.HealthBar-progress {
+    padding: 0.01em 16px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #4CAF50;
+}
