@@ -1,3 +1,4 @@
+import "./ItemCard.css"
 function ItemCard({ name, qty, purpose, id }) {
     return (
         <div className="ItemCard">

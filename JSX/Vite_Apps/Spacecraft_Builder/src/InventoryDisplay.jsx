@@ -5,7 +5,7 @@ function InventoryDisplay({ inventory, removeItem }) {
     return (
         <>
             {inventory.map(({ name, qty, purpose, id }) => (
-                <div key={id}>
+                <div className="InventoryItem" key={id}>
                     <ItemCard
                         name={name}
                         qty={qty}

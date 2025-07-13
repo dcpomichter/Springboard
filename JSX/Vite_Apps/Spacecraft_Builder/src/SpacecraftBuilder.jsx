@@ -17,7 +17,10 @@ function SpacecraftBuilder() {
 
     return (
         <>
+            <h1>Spacecraft Builder</h1>
+            <h3>Inventory Form:</h3>
             <ItemForm addItem={addItem} />
+            <h3>Inventory</h3>
             <InventoryDisplay inventory={inventory} removeItem={removeItem} />
         </>
     )

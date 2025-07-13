@@ -1,0 +1,10 @@
+.InventoryItem {
+    position: relative;
+    border: 2px solid white;
+}
+
+.InventoryItem button {
+    position: absolute;
+    left: 325px;
+    top: 50px;
+}
