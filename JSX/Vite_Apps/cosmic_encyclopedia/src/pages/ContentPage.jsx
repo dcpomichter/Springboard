@@ -1,6 +1,10 @@
 
-export default function ContentPage() {
+export default function ContentPage(data) {
+
     return (
-        <div>ContentPage</div>
+        <div>
+            <h1>{data.data.name}</h1>
+            <p>{data.data.content}</p>
+        </div>
     )
 }
