@@ -19,5 +19,6 @@ header nav a {
 }
 
 header nav a.active {
-    background: grey;
+    background: red;
+    text-decoration: underline solid 2px;
 }
