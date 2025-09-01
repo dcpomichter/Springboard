@@ -1,7 +1,10 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 export default function PlanetsLayout() {
   return (
-    <div>PlanetsLayout</div>
+    <main className='planets-layout'>
+      <Outlet />
+    </main>
   )
 }

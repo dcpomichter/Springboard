@@ -1,0 +1,10 @@
+.spacecraft {
+    border: solid skyblue 2px;
+    margin: auto;
+    margin-top: 10px;
+    padding: 15px;
+}
+.newShip {
+    margin: 25px;
+    padding: 5px;
+}

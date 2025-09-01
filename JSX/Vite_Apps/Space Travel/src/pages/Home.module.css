@@ -1,6 +1,7 @@
-div {
-    margin: 0;
+.homepage div {
+    margin: 15px;
     padding: 15px;
+    border: solid 2px white;
 }
 div h3{
     margin: auto;
@@ -9,4 +10,8 @@ div h3{
 }
 div p {
     border: dotted white 1px;
+    margin: 10px;
+}
+h2 {
+    font-size: xx-large;
 }

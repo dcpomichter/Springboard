@@ -1,0 +1,30 @@
+.planet {
+    margin: 2%;
+    margin-top: 10px;
+    padding: 15px;
+    border: solid gray 3px;
+}
+
+.container {
+    width: 120px;
+    height: 200px;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+.spaceContainer {
+    margin: auto;
+    width: 55%;
+    height: 55%;
+}
+.spaceContainer img {
+    width: 100%;
+    height: auto;
+}
+.spacecraft {
+    width: min-content;
+    border: dashed 2px gray;
+    margin: 5px;
+}

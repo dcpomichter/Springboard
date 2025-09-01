@@ -29,6 +29,9 @@ class SpaceTravelApi
 
   static async sendSpacecraftToPlanet ({spacecraftId, targetPlanetId})
   {
+
+    console.log(spacecraftId)
+    console.log(targetPlanetId)
     return SpaceTravelMockApi.sendSpacecraftToPlanet({spacecraftId, targetPlanetId});
   }
 }

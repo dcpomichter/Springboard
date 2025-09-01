@@ -1,10 +1,13 @@
 import styles from "./RootLayout.module.css"
 import React from 'react'
-import { NavLink, Outlet } from "react-router-dom"
+import { NavLink, Outlet, useNavigation } from "react-router-dom"
+import SpinnerLoader from "../components/SpinnerLoader"
 
 export default function RootLayout() {
+
+  const navigation = useNavigation()
   return (
-    <div className="root-layout">
+    <div className={styles.root_layout}>
       <header>
         <nav>
           <h1>Space Travel</h1>
@@ -13,9 +16,12 @@ export default function RootLayout() {
           <NavLink to="planets">Planets</NavLink>
         </nav>
       </header>
+      {navigation.state === 'loading' ? <SpinnerLoader /> :
       <main>
         <Outlet />
       </main>
+      }
+
     </div>
   )
 }
