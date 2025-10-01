@@ -1,0 +1,19 @@
+{
+  "name": "files",
+  "version": "1.0.0",
+  "description": "a server project for node practice",
+  "keywords": [
+    "node.js"
+  ],
+  "license": "ISC",
+  "author": "dcpomichter",
+  "type": "commonjs",
+  "main": "step1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
