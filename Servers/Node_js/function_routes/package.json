@@ -1,0 +1,26 @@
+{
+  "name": "function_routes",
+  "version": "1.0.0",
+  "description": "practice for routes using mathematical functions",
+  "keywords": [
+    "express",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "placeholder"
+  },
+  "license": "ISC",
+  "author": "dcpomichter",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
