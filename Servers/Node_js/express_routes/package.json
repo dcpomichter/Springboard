@@ -1,0 +1,28 @@
+{
+  "name": "express_routes",
+  "version": "1.0.0",
+  "description": "a project to practice Express Routing and error handling",
+  "keywords": [
+    "Express",
+    "NodeJS",
+    "Javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "placeholder"
+  },
+  "license": "ISC",
+  "author": "dcpomichter",
+  "type": "commonjs",
+  "main": "fakeDB.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4"
+  }
+}
