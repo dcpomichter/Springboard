@@ -16,7 +16,7 @@ afterEach(async () => {
     items = []
 });
 
-describe("GET /items", async function () {
+describe("GET /items", function () {
     test("Gets a list of items", async function () {
         const response = await request(app).get(`/items`);
         const { items } = response.body;
@@ -25,7 +25,7 @@ describe("GET /items", async function () {
     });
 });
 
-describe("GET /items/:name", async function () {
+describe("GET /items/:name", function () {
     test("Gets a single item", async function () {
         const response = await request(app).get(`/items/${item.name}`);
         expect(response.statusCode).toBe(200);
@@ -38,7 +38,7 @@ describe("GET /items/:name", async function () {
     });
 });
 
-describe("POST /items", async function () {
+describe("POST /items", function () {
     test("Creates a new item", async function () {
         const response = await request(app)
             .post(`/items`)
@@ -54,7 +54,7 @@ describe("POST /items", async function () {
     });
 });
 
-describe("PATCH /items/:name", async function () {
+describe("PATCH /items/:name", function () {
     test("Updates a single item", async function () {
         const response = await request(app)
             .patch(`/items/${item.name}`)
@@ -73,7 +73,7 @@ describe("PATCH /items/:name", async function () {
     });
 });
 
-describe("DELETE /items/:name", async function () {
+describe("DELETE /items/:name", function () {
     test("Deletes a single a item", async function () {
         const response = await request(app)
             .delete(`/items/${item.name}`);
