@@ -9,12 +9,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "placeholder"
+    "url": "https://github.com/dcpomichter/Springboard/tree/main/Servers/Node_js/express_routes"
   },
   "license": "ISC",
   "author": "dcpomichter",
   "type": "commonjs",
-  "main": "fakeDB.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest"
   },
