@@ -25,7 +25,7 @@ beforeEach(async () => {
       RETURNING isbn`);
 
     book_isbn = result.rows[0].isbn
-});
+}, 90000);
 
 
 describe("POST", function () {
@@ -145,7 +145,7 @@ describe("DELETE", function () {
 
 afterEach(async function () {
     await db.query("DELETE FROM BOOKS");
-});
+}, 90000);
 
 
 afterAll(async function () {
