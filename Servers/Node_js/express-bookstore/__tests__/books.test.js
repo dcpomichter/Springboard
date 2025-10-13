@@ -28,25 +28,25 @@ beforeEach(async () => {
 });
 
 
-describe("POST /books", function () {
+describe("POST", function () {
     test("Creates a new book", async function () {
         const response = await request(app)
             .post(`/books`)
             .send({
-                isbn: '32794782',
-                amazon_url: "https://taco.com",
-                author: "mctest",
+                isbn: '654628622',
+                amazon_url: "https://example.com",
+                author: "Testman",
                 language: "english",
-                pages: 1000,
-                publisher: "yeah right",
-                title: "amazing times",
-                year: 2000
+                pages: 654,
+                publisher: "opry house",
+                title: "Vibing",
+                year: 2025
             });
         expect(response.statusCode).toBe(201);
         expect(response.body.book).toHaveProperty("isbn");
     });
 
-    test("Prevents creating book without required title", async function () {
+    test("Prevents creating book without required properties", async function () {
         const response = await request(app)
             .post(`/books`)
             .send({ year: 2000 });
@@ -55,7 +55,7 @@ describe("POST /books", function () {
 });
 
 
-describe("GET /books", function () {
+describe("GET  for /books", function () {
     test("Gets a list of 1 book", async function () {
         const response = await request(app).get(`/books`);
         const books = response.body.books;
@@ -66,7 +66,7 @@ describe("GET /books", function () {
 });
 
 
-describe("GET /books/:isbn", function () {
+describe("GET for /:id", function () {
     test("Gets a single book", async function () {
         const response = await request(app)
             .get(`/books/${book_isbn}`)
@@ -74,7 +74,7 @@ describe("GET /books/:isbn", function () {
         expect(response.body.book.isbn).toBe(book_isbn);
     });
 
-    test("Responds with 404 if can't find book in question", async function () {
+    test("Responds with 404 if can't find book", async function () {
         const response = await request(app)
             .get(`/books/999`)
         expect(response.statusCode).toBe(404);
@@ -82,7 +82,7 @@ describe("GET /books/:isbn", function () {
 });
 
 
-describe("PUT /books/:id", function () {
+describe("PUT", function () {
     test("Updates a single book", async function () {
         const response = await request(app)
             .put(`/books/${book_isbn}`)
@@ -116,17 +116,25 @@ describe("PUT /books/:id", function () {
         expect(response.statusCode).toBe(400);
     });
 
-    test("Responds 404 if can't find book in question", async function () {
-        // delete book first
-        await request(app)
+    test("Responds 404 if can't find book", async function () {
+        const response = await request(app)
             .delete(`/books/${book_isbn}`)
-        const response = await request(app).delete(`/books/${book_isbn}`);
+            .put(`/books/${book_isbn}`)
+            .send({
+                amazon_url: "https://taco.com",
+                author: "mctest",
+                language: "english",
+                pages: 1000,
+                publisher: "yeah right",
+                title: "UPDATED BOOK",
+                year: 2000
+            });;
         expect(response.statusCode).toBe(404);
     });
 });
 
 
-describe("DELETE /books/:id", function () {
+describe("DELETE", function () {
     test("Deletes a single a book", async function () {
         const response = await request(app)
             .delete(`/books/${book_isbn}`)
