@@ -1,7 +1,6 @@
 const User = require('../models/User');
+const Dog = require('../models/Dog')
 const jwt = require('jsonwebtoken');
-//load configuration from .env file
-require('dotenv-flow').config();
 
 //handleErrors
 const handleErrors = (err) => {

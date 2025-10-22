@@ -1,0 +1,39 @@
+const mongoose = require('mongoose');
+
+const dogSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, 'Name is required'],
+    },
+    postedby: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: [true, 'A brief description is required'],
+        minlength: 6,
+    },
+    adoptionstatus: {
+        type: Boolean,
+        default: false
+
+    }
+})
+
+//fire a function before a doc is saved to the db
+dogSchema.pre('save', async function (next) {
+    next()
+})
+
+//fire a function after a doc is saved to the db
+dogSchema.post('save', function (doc, next) {
+    next()
+})
+
+
+
+
+const Dog = mongoose.model('dog', dogSchema)
+
+module.exports = Dog;
