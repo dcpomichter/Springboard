@@ -1,5 +1,7 @@
-const { Router } = require('express')
-const authController = require('../controllers/authController')
+const { Router } = require('express');
+const authController = require('../controllers/authController');
+const dogController = require('../controllers/dogController');
+const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
 const router = Router()
 
@@ -15,7 +17,7 @@ router.route('/logout')
     .get(authController.logout_get)
 
 router.route('/register-dog')
-    .get(authController.dogs_get)
-    .post(authController.dog_post)
+    .get(requireAuth, dogController.dogs_get)
+    .post(requireAuth, dogController.dog_post)
 
 module.exports = router
