@@ -1,19 +1,19 @@
-const mongoose = require('mongoose')
+const { MongoClient } = require('mongodb')
+require('dotenv-flow').config();
 
 let dbConnection
 
 module.exports = {
     connectToDb: (cb) => {
-        mongoose
-            .connect(process.env.MONGODB_URI)
-            .then((res) => {
-                console.log('MongoDB Connected')
-                app.listen(5000, console.log('Server Running on http://localhost:5000'));
+        MongoClient.connect(process.env.MONGODB_URI)
+            .then((client) => {
+                dbConnection = client.db()
                 return cb()
             })
             .catch(err => {
                 console.log(err)
                 return cb(err)
             })
-    }
+    },
+    getDb: () => dbConnection
 }

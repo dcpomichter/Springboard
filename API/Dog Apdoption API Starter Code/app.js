@@ -1,3 +1,7 @@
+
+//load configuration from .env file
+require('dotenv-flow').config();
+
 const express = require('express');
 const { connectToDb, getDb } = require('./db');
 const { ObjectId } = require('mongodb');
@@ -11,8 +15,6 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser())
 
-//load configuration from .env file
-require('dotenv-flow').config();
 
 app.set('view engine', 'ejs');
 
@@ -29,6 +31,5 @@ connectToDb((err) => {
 })
 
 // routes
-app.get('*', checkUser);
-app.get('/', (req, res) => res.render('home'));
+app.get('/', checkUser, (req, res) => res.render('home'));
 app.use(authRoutes)

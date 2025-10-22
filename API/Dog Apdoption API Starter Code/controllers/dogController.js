@@ -33,3 +33,7 @@ module.exports.dog_post = async (req, res) => {
         res.status(400).json({ errors })
     }
 }
+
+module.exports.adoption_get = (req, res) => {
+    res.render('adoption')
+}
