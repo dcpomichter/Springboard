@@ -5,14 +5,14 @@ const dogSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Name is required'],
     },
-    postedby: {
-        type: String,
-        required: true,
-    },
     description: {
         type: String,
         required: [true, 'A brief description is required'],
         minlength: 6,
+    },
+    postedby: {
+        type: String,
+        required: true,
     },
     adoptionstatus: {
         type: Boolean,

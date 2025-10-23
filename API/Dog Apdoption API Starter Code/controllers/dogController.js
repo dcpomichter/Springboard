@@ -1,4 +1,5 @@
 const Dog = require('../models/Dog')
+const {checkUser} = require('../middleware/authMiddleware')
 
 const handleErrors = (err) => {
     let errors = { name: '', description: '' }
@@ -13,16 +14,27 @@ const handleErrors = (err) => {
     return errors
 }
 
+module.exports.adoption_get = (req, res) => {
+    Dog.find()
+        .then((result) => {
+            res.render('adoption', { title: "All Dogs", dogs: result })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
+
 module.exports.dogs_get = (req, res) => {
     res.render('register-dog')
 }
 
 module.exports.dog_post = async (req, res) => {
     const { name, description } = req.body
+    const id = req.userData
     try {
         const dog = await Dog.create({
             name,
-            postedby,
+            postedby: id,
             description,
             adoptionstatus
         })
@@ -32,8 +44,4 @@ module.exports.dog_post = async (req, res) => {
         const errors = handleErrors(err)
         res.status(400).json({ errors })
     }
-}
-
-module.exports.adoption_get = (req, res) => {
-    res.render('adoption')
 }

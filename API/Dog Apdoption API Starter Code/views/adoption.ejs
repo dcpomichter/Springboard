@@ -1,8 +1,28 @@
 <%- include('partials/header'); -%>
 
     <header>
+        <%- include('./partials/nav.ejs') %>
         <div class="dog">
             <img src="/Teddy_the_cocker_spaniel_artwork_3.png" alt="colorful cockerspaniel">
         </div>
+    <body>
 
-<%- include('partials/footer'); -%>
+
+            <div class="dogs content">
+                <h2>All Dogs</h2>
+                <% if (dogs.length> 0) { %>
+                    <% dogs.forEach(dog=> {%>
+                        <a class="single" href="/dogs/<%= dog._id %>">
+                            <h3 class="title">
+                                <%= dog.name %>
+                            </h3>
+                        </a>
+                            <p class="description">
+                                <%= dog.description %>
+                            </p>
+                        <% }) %>
+                            <%} else {%>
+                                <p> There are no Dogs to adopt...</p>
+                                <% } %>
+            </div>
+    </body>

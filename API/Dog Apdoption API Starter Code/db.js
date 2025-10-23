@@ -1,19 +1,19 @@
-const { MongoClient } = require('mongodb')
-require('dotenv-flow').config();
+// const { MongoClient } = require('mongodb')
+// require('dotenv-flow').config();
 
-let dbConnection
+// let dbConnection
 
-module.exports = {
-    connectToDb: (cb) => {
-        MongoClient.connect(process.env.MONGODB_URI)
-            .then((client) => {
-                dbConnection = client.db()
-                return cb()
-            })
-            .catch(err => {
-                console.log(err)
-                return cb(err)
-            })
-    },
-    getDb: () => dbConnection
-}
+// module.exports = {
+//     connectToDb: (cb) => {
+//         MongoClient.connect(process.env.MONGODB_URI)
+//             .then((client) => {
+//                 dbConnection = client.db()
+//                 return cb()
+//             })
+//             .catch(err => {
+//                 console.log(err)
+//                 return cb(err)
+//             })
+//     },
+//     getDb: () => dbConnection
+// }

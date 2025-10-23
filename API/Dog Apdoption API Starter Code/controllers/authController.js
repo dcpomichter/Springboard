@@ -1,10 +1,11 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+require('dotenv-flow').config();
 
 //handleErrors
 const handleErrors = (err) => {
     let errors = { username: '', email: '', password: '' }
-
+    console.log(err)
     //incorrect email
     if (err.message === 'incorrect email') {
         errors.email = 'that email is not registered'

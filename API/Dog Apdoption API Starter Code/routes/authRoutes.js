@@ -18,7 +18,7 @@ router.route('/logout')
 
 router.route('/register-dog')
     .get(checkUser, requireAuth, dogController.dogs_get)
-    .post(requireAuth, dogController.dog_post)
+    .post(checkUser, requireAuth, dogController.dog_post)
 
 router.route('/adoption')
     .get(checkUser, dogController.adoption_get)
