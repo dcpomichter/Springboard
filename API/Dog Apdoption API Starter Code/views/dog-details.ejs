@@ -19,16 +19,22 @@
                     </p>
                     <p>Adoption status:</p>
                     <% if ((!dog.adoptionstatus && human && user && user.username !== human.username) || (human === null && !dog.adoptionstatus)) { %>
-                        <button><a class="adopt" data-doc="<%= dog._id %>">Ready to Adopt</a></button>
+                        <a class="adopt" data-doc="<%= dog._id %>">
+                            <button>Ready to Adopt</button>
+                        </a>
                     <% } else if (!user) { %>
-                        <button><a href="/login">Log In to Adopt</a></button>
+                        <a href="/login">
+                            <button>Log In to Adopt</button>
+                        </a>
                     <% } else if (human && user.username === human.username) { %>
                         <p>You cannot adopt your own dog.</p>
                     <% } else { %>
                         <p>Already Adopted</p>
                     <% } %>
                     <% if (user && human && user.username === human.username && !dog.adoptionstatus) { %>
-                        <button><a class="delete" data-doc="<%= dog._id %>">Delete</a></button>
+                        <a class="delete" data-doc="<%= dog._id %>">
+                            <button>Delete</button>
+                        </a>
                     <% } %>
             </body>
 

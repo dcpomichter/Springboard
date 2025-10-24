@@ -4,10 +4,9 @@ require('dotenv-flow').config();
 
 const express = require('express');
 // const { connectToDb, getDb } = require('./db');
-const { ObjectId } = require('mongodb');
 const authRoutes = require('./routes/authRoutes')
 const cookieParser = require('cookie-parser');
-const { requireAuth, checkUser } = require('./middleware/authMiddleware');
+const { checkUser } = require('./middleware/authMiddleware');
 const mongoose = require('mongoose')
 
 const app = express();

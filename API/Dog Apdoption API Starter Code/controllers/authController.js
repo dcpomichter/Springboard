@@ -86,6 +86,8 @@ module.exports.logout_get = (req, res) => {
 
 module.exports.user_details = async (req, res) => {
     const id = req.params.id
+    const page = req.query.page || 1
+    const limit = req.query.limit || 3
     let adoptedDogs = []
     let registeredDogs = []
 
