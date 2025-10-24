@@ -1,0 +1,68 @@
+<%- include('partials/header'); -%>
+
+    <header>
+        <%- include('./partials/nav.ejs') %>
+            <div class="dog">
+                <img src="/Teddy_the_cocker_spaniel_artwork_3.png" alt="colorful cockerspaniel">
+            </div>
+</header>
+            <body>
+                <div class="dogs content">
+                    <h2>Name: <%= dog.name %></h2>
+                    <h3>Posted By: <% if (human) { %>
+                        <%= human.username %>
+                        <% } %>
+                    </h3>
+                    <h4>Description:</h4>
+                    <p class="description">
+                        <%= dog.description %>
+                    </p>
+                    <p>Adoption status:</p>
+                    <% if ((!dog.adoptionstatus && human && user && user.username !== human.username) || (human === null && !dog.adoptionstatus)) { %>
+                        <button><a class="adopt" data-doc="<%= dog._id %>">Ready to Adopt</a></button>
+                    <% } else if (!user) { %>
+                        <button><a href="/login">Log In to Adopt</a></button>
+                    <% } else if (human && user.username === human.username) { %>
+                        <p>You cannot adopt your own dog.</p>
+                    <% } else { %>
+                        <p>Already Adopted</p>
+                    <% } %>
+                    <% if (user && human && user.username === human.username && !dog.adoptionstatus) { %>
+                        <button><a class="delete" data-doc="<%= dog._id %>">Delete</a></button>
+                    <% } %>
+            </body>
+
+            <script>
+                const trashcan = document.querySelector('a.delete')
+
+                if (trashcan) {
+                    trashcan.addEventListener('click', (evt) => {
+                        const endpoint = `/dogs/${trashcan.dataset.doc}`
+
+                        fetch(endpoint, {
+                            method: 'DELETE'
+                        })
+                        .then((response) => response.json())
+                        .then((data) => window.location.href = data.redirect)
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                })}
+
+                const adoption = document.querySelector('a.adopt')
+
+                    if (adoption) {
+                        adoption.addEventListener('click', (evt) => {
+                            const endpoint = `/dogs/${adoption.dataset.doc}`
+
+                            fetch(endpoint, {
+                                method: 'PATCH'
+                            })
+                                .then((response) => response.json())
+                                .then((data) => window.location.href = data.redirect)
+                                .catch((err) => {
+                                    console.log(err)
+                                })
+                        })
+                    }
+            </script>

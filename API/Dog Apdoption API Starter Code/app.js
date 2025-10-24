@@ -33,9 +33,9 @@ mongoose.connection.once('open', () => {
 });
 
 // routes
-app.get('/', checkUser, (req, res) => res.render('home'));
+app.get('/', checkUser, (req, res) => res.render('home', {title: 'Homepage'}));
 app.use(authRoutes)
-app.use((req, res) => {
+app.use(checkUser, (req, res) => {
     // res.status(404).sendFile('./views/404.html', { root: __dirname})
     res.status(404).render('404', { title: '404' })
 })

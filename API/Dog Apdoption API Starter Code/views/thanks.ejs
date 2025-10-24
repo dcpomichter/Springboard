@@ -1,0 +1,46 @@
+<%- include('partials/header'); -%>
+
+    <form>
+        <h2>Send a thank you</h2>
+        <label for="thanks">Note
+            <input type="text" name="thanks" />
+            <div class="thanks error"></div>
+        </label>
+        <button class="submit" data-doc="<%= dog._id %>">Send Note</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+        const btn = document.querySelector('.submit')
+        const thanksError = document.querySelector('.thanks.error');
+
+        form.addEventListener('submit', async (evt) => {
+            evt.preventDefault();
+
+            //reset errors
+            thanksError.textContent = '';
+
+            //get values
+            const note = form.thanks.value
+
+            try {
+                const res = await fetch(`/dogs/thanks/${btn.dataset.doc}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({ note }),
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                const data = await res.json();
+                if (data.errors) {
+                    thanksError.textContent = data.errors.thanks
+                }
+                if (data.user) {
+                    location.assign('/');
+                }
+            }
+            catch (err) {
+                console.log(err)
+            }
+        })
+    </script>
+
+    <%- include('partials/footer'); -%>

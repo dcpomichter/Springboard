@@ -18,6 +18,10 @@ const dogSchema = new mongoose.Schema({
         type: Boolean,
         default: false
 
+    },
+    adoptedby: {
+        type: String,
+        default: ''
     }
 })
 

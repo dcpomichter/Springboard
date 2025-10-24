@@ -1,0 +1,47 @@
+<%- include('partials/header'); -%>
+
+    <header>
+        <%- include('./partials/nav.ejs') %>
+            <div class="dog">
+                <img src="/Teddy_the_cocker_spaniel_artwork_3.png" alt="colorful cockerspaniel">
+            </div>
+    </header>
+
+    <body>
+
+
+        <div class="user content">
+            <h2>Your Adopted Dogs</h2>
+            <% if (dogs.length > 0) { %>
+                <% dogs.forEach( dog => { %>
+                    <a class="single" href="/dogs/<%= dog._id %>">
+                        <h3 class="title">
+                            <%= dog.name %>
+                        </h3>
+                    </a>
+                    <% }) %>
+                        <%} else {%>
+                            <p> You have not adopted any Dogs...</p>
+                            <% } %>
+            <h2>Your Registered Dogs</h2>
+            <% if (register.length> 0) { %>
+                <% register.forEach( dog=> { %>
+                    <a class="single" href="/dogs/<%= dog._id %>">
+                        <h3 class="title">
+                            <%= dog.name %>
+                        </h3>
+                        <p>
+                            Adoption Status:
+                        <% if (dog.adoptionstatus) { %>
+                            Adopted!
+                        <% } else { %>
+                            Waiting to be Adopted
+                        <% } %>
+                        </p>
+                    </a>
+                    <% }) %>
+                        <%} else {%>
+                            <p> You have not registered any Dogs...</p>
+                            <% } %>
+        </div>
+    </body>

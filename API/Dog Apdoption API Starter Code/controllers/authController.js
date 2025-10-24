@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Dog = require('../models/Dog')
 const jwt = require('jsonwebtoken');
 require('dotenv-flow').config();
 
@@ -39,7 +40,7 @@ const createToken = (id) => {
     })
 }
 module.exports.register_get = (req, res) => {
-    res.render('register')
+    res.render('register', {title: 'Register User'})
 }
 
 module.exports.register_post = async (req, res) => {
@@ -61,7 +62,7 @@ module.exports.register_post = async (req, res) => {
 }
 
 module.exports.login_get = (req, res) => {
-    res.render('login')
+    res.render('login', { title: 'Login' })
 }
 
 module.exports.login_post = async (req, res) => {
@@ -82,3 +83,26 @@ module.exports.logout_get = (req, res) => {
     res.cookie('jwt', '', { httpOnly: true, maxAge: 1 })
     res.redirect('/')
 }
+
+module.exports.user_details = async (req, res) => {
+    const id = req.params.id
+    let adoptedDogs = []
+    let registeredDogs = []
+
+    try {
+        const user = await User.findById(id)
+    for (const dog of user.adopteddogs){
+        const dogDetails = await Dog.findById(dog)
+        adoptedDogs.push(dogDetails)
+        }
+    for (const dog of user.registereddogs) {
+        const dogDetails = await Dog.findById(dog)
+        registeredDogs.push(dogDetails)
+    }
+    res.render('user', { title: 'User Page', dogs: adoptedDogs, register: registeredDogs })
+            }
+    catch (err) {
+        const errors = handleErrors(err)
+        res.status(400).json({ errors })
+    }
+    }

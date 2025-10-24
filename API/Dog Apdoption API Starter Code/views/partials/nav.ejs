@@ -3,7 +3,7 @@
         <li><a href="/adoption">Adoptions</a></li>
         <% if(user){ %>
         <li><a href="/register-dog">Register New Dog</a></li>
-        <li><a href="/:user">Your Dogs</a></li>
+        <li><a href="/user/<%= user._id %>">Your Dogs</a></li>
         <% } %>
     </ul>
 </nav>
